@@ -83,10 +83,13 @@ class SongPage extends StatelessWidget {
                       ),
                     ),
                     Slider(
-                            value: 50,
+                            value: value.currentDuration.inSeconds.toDouble(),
                             onChanged: (value) {},
                             min: 0,
-                            max: 100,
+                            max: value.totalDuration.inSeconds.toDouble(),
+                            onChangeEnd: (double double) {
+                              value.seek(Duration(seconds: double.toInt()));
+                            },
                           ),
                   ],
                 ),
